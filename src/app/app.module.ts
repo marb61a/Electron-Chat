@@ -12,17 +12,19 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { environment } from '../environments/environment';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { SignupPageComponent } from './components/signup-page/signup-page.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    SignupPageComponent
+    SignupPageComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.config),
-    AngularFirestoreModule
+    AngularFireModule
   ],
   providers: [],
   bootstrap: [AppComponent]
