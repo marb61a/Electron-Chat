@@ -11,11 +11,13 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 // Firebase config
 import { environment } from '../environments/environment';
 import { LoginPageComponent } from './components/login-page/login-page.component';
+import { SignupPageComponent } from './components/signup-page/signup-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    SignupPageComponent
   ],
   imports: [
     BrowserModule,

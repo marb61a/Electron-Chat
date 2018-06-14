@@ -6,11 +6,11 @@
 export const environment = {
   production: false,
   config: {
-    apiKey: "AIzaSyCLISqZZuD7EaAgcIGLLuyPju7PG2ZZOv4",
-    authDomain: "electronchatapp-51f09.firebaseapp.com",
-    databaseURL: "https://electronchatapp-51f09.firebaseio.com",
-    projectId: "electronchatapp-51f09",
-    storageBucket: "electronchatapp-51f09.appspot.com",
-    messagingSenderId: "780097818353"
+    apiKey: 'AIzaSyCLISqZZuD7EaAgcIGLLuyPju7PG2ZZOv4',
+    authDomain: 'electronchatapp-51f09.firebaseapp.com',
+    databaseURL: 'https://electronchatapp-51f09.firebaseio.com',
+    projectId: 'electronchatapp-51f09',
+    storageBucket: 'electronchatapp-51f09.appspot.com',
+    messagingSenderId: '780097818353'
   }
 };
