@@ -10,13 +10,17 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 // Firebase config
 import { environment } from '../environments/environment';
+import { LoginPageComponent } from './components/login-page/login-page.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginPageComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AngularFireModule.initializeApp(environment.config),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
