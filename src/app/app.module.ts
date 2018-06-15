@@ -40,7 +40,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.config),
-    AngularFireModule
+    AngularFireModule,
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
