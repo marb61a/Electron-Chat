@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Components
 import { AppComponent } from './app.component';
@@ -21,6 +22,7 @@ import { appRoutes } from './routes';
 
 // Material2
 import { MaterialdesignModule } from './materialdesign';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,9 @@ import { MaterialdesignModule } from './materialdesign';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialdesignModule,
+    FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.config),
     AngularFireModule
