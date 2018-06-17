@@ -23,7 +23,8 @@ export class AuthService {
     return this.authState !== null ? this.authState.uid : '';
   }
 
-  signup(usercreds) {
+  // Signup
+  signUp(usercreds) {
     return this.afauth.auth.createUserWithEmailAndPassword(usercreds.email, usercreds.password)
       .then((user) => {
         this.authState = user;
@@ -36,7 +37,20 @@ export class AuthService {
       });
   }
 
+  // Set the user data to a local user collection
   setUserData(email: string, displayName: string, photoURL: string) {
     const path = `/users/${this.currentUserId}`;
+    const statuspath = `/status/${this.currentUserId}`;
+    const userdoc = this.afs.doc(path);
+    const status = this.afs.doc(statuspath);
+    userdoc.set({
+      email: email,
+      displayName: displayName,
+      photoURL: photoURL
+    });
+    status.set({
+      status: 'online'
+    });
+    this.router.navigate(['dashboard']);
   }
 }

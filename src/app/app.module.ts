@@ -24,6 +24,10 @@ import { appRoutes } from './routes';
 import { MaterialdesignModule } from './materialdesign';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+// Services
+import { AuthService } from './services/auth.service';
+import { AuthguardService } from './services/authguard.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +47,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     AngularFireModule,
     AngularFirestoreModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AuthguardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

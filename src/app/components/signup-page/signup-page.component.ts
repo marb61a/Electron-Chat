@@ -10,14 +10,13 @@ const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z
   styleUrls: ['./signup-page.component.css']
 })
 export class SignupPageComponent implements OnInit {
-
-  constructor() { }
-
   usercreds = {
     email: '',
     password: '',
     displayName: ''
   };
+
+  constructor(private auth: AuthService) { }
 
   emailFormControl: FormControl = new FormControl('', [
     Validators.required,
@@ -32,7 +31,7 @@ export class SignupPageComponent implements OnInit {
   }
 
   createAccount() {
-
+    this.auth.signUp(this.usercreds);
   }
 
 }
