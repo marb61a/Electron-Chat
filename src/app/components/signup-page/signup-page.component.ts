@@ -32,7 +32,7 @@ export class SignupPageComponent implements OnInit {
   }
 
   createAccount() {
-    
+
   }
 
 }
