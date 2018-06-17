@@ -14,7 +14,7 @@
           All Fields Are Mandatory
         </mat-card-subtitle>
         <mat-card-content>
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="input-width">
             <input matInput placeholder="Email" [formControl]="emailFormControl" [(ngModel)]="userscreds.email">
             <mat-error *ngIf="emailFormControl.hasError('pattern')">
               Please Enter A Valid Email Address
@@ -23,17 +23,17 @@
               Email is <strong>Required</strong>
             </mat-error>
           </mat-form-field>
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="input-width">
             <input matInput placeholder="Password" [formControl]="passwordFormControl" [(ngModel)]="usercreds.password">
             <mat-error *ngIf="passwordFormControl.hasError('required')">
               Password is <strong>Required</strong>
             </mat-error>
           </mat-form-field>
-          <mat-form-field>
+          <mat-form-field class="input-width">
             <input matInput placeholder="Nickname" [(ngModel)]="usercreds.displayName">
           </mat-form-field>
         </mat-card-content>
-        <button mat-raised-button (click)=login() color="primary" style="width: 80%;">
+        <button mat-raised-button (click)=createAccount() color="primary" style="width: 80%;">
           Signup
         </button>
         <p>
