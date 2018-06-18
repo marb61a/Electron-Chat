@@ -84,4 +84,15 @@ export class AuthService {
       console.log(error);
     });
   }
+
+  // Logout function
+  logout() {
+    this.afauth.auth.signOut()
+      .then(() => {
+        this.router.navigate(['login']);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 }
