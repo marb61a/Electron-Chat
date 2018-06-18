@@ -60,7 +60,28 @@ export class AuthService {
     this.router.navigate(['dashboard']);
   }
 
+  // Login functions
   login(usercreds) {
+    return this.afauth.auth.signInWithEmailAndPassword(
+      usercreds.email,
+      usercreds.password
+    ).then((user) => {
+      this.authState = user;
+      const status = 'online';
+      this.setUserStatus(status);
+      this.router.navigate(['dashboard']);
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
 
+  setUserStatus(status) {
+    const statuscollection = this.afs.doc(`status/${this.currentUserId}`);
+    const data = {
+      status: status
+    };
+    statuscollection.update(data).catch((error) => {
+      console.log(error);
+    });
   }
 }
