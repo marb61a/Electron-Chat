@@ -44,8 +44,8 @@ export class AuthService {
 
   // Set the user data to a local user collection
   setUserData(email: string, displayName: string, photoURL: string) {
-    const path = `/users/${this.currentUserId}`;
-    const statuspath = `/status/${this.currentUserId}`;
+    const path = `users/${this.currentUserId}`;
+    const statuspath = `status/${this.currentUserId}`;
     const userdoc = this.afs.doc(path);
     const status = this.afs.doc(statuspath);
     userdoc.set({
@@ -54,8 +54,13 @@ export class AuthService {
       photoURL: photoURL
     });
     status.set({
+      email: email,
       status: 'online'
     });
     this.router.navigate(['dashboard']);
+  }
+
+  login(usercreds) {
+
   }
 }

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import {FormControl, Validators} from '@angular/forms';
+
+const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 @Component({
   selector: 'app-login-page',
@@ -7,8 +11,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
+  usercreds = {
+    email: '',
+    password: '',
+  };
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private auth: AuthService) { }
+
+  emailFormControl: FormControl = new FormControl('', [
+    Validators.required,
+    Validators.pattern(EMAIL_REGEX)
+  ]);
+
+  passwordFormControl: FormControl = new FormControl('', [
+    Validators.required
+  ]);
 
   ngOnInit() {
   }
