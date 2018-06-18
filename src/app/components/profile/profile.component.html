@@ -1,3 +1,19 @@
-<p>
-  profile works!
-</p>
+<div fxLayout="row" fxLayoutAlign="center">
+  <div fxLayout="column">
+    <img class="centered-and-cropped" src="{{user.photoURL}}">
+    <h3>Nickname: {{user.displayName}}</h3>
+  </div>
+</div>
+<div fxLayout="row" fxLayoutAlign="center">
+  <span matTooltip="Change Your Nickname">
+    <button mat-mini-fab color="primary">
+
+    </button>
+  </span>
+  <span matTooltip="Change Your Profile Pic">
+    <button mat-mini-fab color="primary">
+
+    </button>
+  </span>
+  <input #fileInput type="file" (change)="chooseImage($event)" style="display: none;">
+</div>
