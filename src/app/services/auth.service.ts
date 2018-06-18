@@ -70,8 +70,6 @@ export class AuthService {
       const status = 'online';
       this.setUserStatus(status);
       this.router.navigate(['dashboard']);
-    }).catch((error) => {
-      console.log(error);
     });
   }
 
