@@ -29,6 +29,7 @@ import { AuthService } from './services/auth.service';
 import { AuthguardService } from './services/authguard.service';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     SignupPageComponent,
     DashboardComponent,
     NavBarComponent,
-    SidebarComponent
+    SidebarComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
