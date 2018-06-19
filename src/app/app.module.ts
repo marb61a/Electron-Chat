@@ -32,6 +32,7 @@ import { AuthService } from './services/auth.service';
 import { AuthguardService } from './services/authguard.service';
 import { UserService } from './services/user.service';
 import { AddfriendComponent } from './components/addfriend/addfriend.component';
+import { RequestsComponent } from './components/requests/requests.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { AddfriendComponent } from './components/addfriend/addfriend.component';
     NavBarComponent,
     SidebarComponent,
     ProfileComponent,
-    AddfriendComponent
+    AddfriendComponent,
+    RequestsComponent
   ],
   imports: [
     BrowserModule,
