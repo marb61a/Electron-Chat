@@ -8,14 +8,25 @@ import { UserService } from '../../services/user.service';
 })
 export class ProfileComponent implements OnInit {
   user;
+  nickNameEdit: boolean = false;
+  newNickname: string;
+  selectedFiles: FileList;
+  spinnerToggle: boolean = false;
 
   constructor(private userService: UserService) {
     this.userService.currentUser.subscribe((user) => {
       this.user = user;
     });
+    this.userService.spinnersub.subscribe((value) => {
+      this.spinnerToggle = value;
+    });
   }
 
   ngOnInit() {
+  }
+
+  editName() {
+    this.nickNameEdit = !this.nickNameEdit;
   }
 
   updateName() {

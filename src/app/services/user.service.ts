@@ -37,6 +37,22 @@ export class UserService {
     const uploadTask = this.storage.upload('/profilepics' + this.afauth.auth.currentUser.uid, file);
     uploadTask.then((data) => {
       downloadURL = data.downloadURL;
+      this.afs.doc('users/' + this.afauth.auth.currentUser.uid).update({
+        photoURL: downloadURL
+      }).then(() => {
+        this.afauth.auth.currentUser.updateProfile({
+          displayName: this.afauth.auth.currentUser.displayName,
+          photoURL: downloadURL
+        }).then(() => {
+          this.spinnersub.next(false);
+        }).then(() => {
+          this.spinnersub.next(false);
+        });
+      }).then(() => {
+          this.spinnersub.next(false);
+        });
+    }).then(() => {
+      this.spinnersub.next(false);
     });
   }
 
