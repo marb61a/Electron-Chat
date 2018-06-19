@@ -1,3 +1,11 @@
-<p>
-  addfriend works!
-</p>
+<mat-list>
+  <mat-list-item *ngFor="let user of users; let i = index">
+    <img matListAvatar src={{user.photoURL}}>
+    <h3 matline>
+      {{user.displayName}}
+    </h3>
+    <button mat-icon-button (click)="addFriend(user)">
+      <mat-icon color="primary">add_circle</mat-icon>
+    </button>
+  </mat-list-item>
+</mat-list>
