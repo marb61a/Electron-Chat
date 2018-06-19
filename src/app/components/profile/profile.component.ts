@@ -19,7 +19,10 @@ export class ProfileComponent implements OnInit {
   }
 
   updateName() {
-
+    this.userService.updateName(this.newNickname).then(() => {
+      this.newNickname = '';
+      this.editName();
+    });
   }
 
   chooseImage() {
