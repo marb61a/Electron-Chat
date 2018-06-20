@@ -35,6 +35,7 @@ import { AddfriendComponent } from './components/addfriend/addfriend.component';
 import { RequestsComponent } from './components/requests/requests.component';
 import { ChatFeedComponent } from './components/chat-feed/chat-feed.component';
 import { MyfriendsComponent } from './components/myfriends/myfriends.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { MyfriendsComponent } from './components/myfriends/myfriends.component';
     AddfriendComponent,
     RequestsComponent,
     ChatFeedComponent,
-    MyfriendsComponent
+    MyfriendsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
