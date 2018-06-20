@@ -33,6 +33,7 @@ import { AuthguardService } from './services/authguard.service';
 import { UserService } from './services/user.service';
 import { AddfriendComponent } from './components/addfriend/addfriend.component';
 import { RequestsComponent } from './components/requests/requests.component';
+import { ChatFeedComponent } from './components/chat-feed/chat-feed.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { RequestsComponent } from './components/requests/requests.component';
     SidebarComponent,
     ProfileComponent,
     AddfriendComponent,
-    RequestsComponent
+    RequestsComponent,
+    ChatFeedComponent
   ],
   imports: [
     BrowserModule,
