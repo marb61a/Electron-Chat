@@ -34,6 +34,7 @@ import { UserService } from './services/user.service';
 import { AddfriendComponent } from './components/addfriend/addfriend.component';
 import { RequestsComponent } from './components/requests/requests.component';
 import { ChatFeedComponent } from './components/chat-feed/chat-feed.component';
+import { MyfriendsComponent } from './components/myfriends/myfriends.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ChatFeedComponent } from './components/chat-feed/chat-feed.component';
     ProfileComponent,
     AddfriendComponent,
     RequestsComponent,
-    ChatFeedComponent
+    ChatFeedComponent,
+    MyfriendsComponent
   ],
   imports: [
     BrowserModule,
