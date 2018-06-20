@@ -12,4 +12,7 @@ export class MyfriendsComponent implements OnInit {
   ngOnInit() {
   }
 
+  getData() {
+
+  }
 }
