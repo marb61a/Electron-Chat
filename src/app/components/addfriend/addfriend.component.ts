@@ -19,6 +19,11 @@ export class AddfriendComponent implements OnInit {
   isSent = [];
   isRequested = [];
 
+  // For instant search
+  myFriends = [];
+  myRequests = [];
+  mySentRequests = [];
+
   constructor(
     private userService: UserService,
     private requestsService: RequestsService,
@@ -33,6 +38,7 @@ export class AddfriendComponent implements OnInit {
         res.subscribe((user) => {
           if (user == 'Exists') {
             this.friendsService.getFriendList().subscribe((friends: any) => {
+              this.myFriends = friends;
               if (friends) {
                 this.isFriends = [];
                 let flag = 0;
@@ -63,6 +69,7 @@ export class AddfriendComponent implements OnInit {
       // Filter out the previous requested users
       this.requestsService.getMyRequests().subscribe((requests: any) => {
         let flag = 0;
+        this.myRequests = requests;
         this.isRequested = [];
         users.forEach((userElement, i) => {
           requests.forEach((requestElement) => {
@@ -73,8 +80,7 @@ export class AddfriendComponent implements OnInit {
           if (flag == 1) {
             this.isRequested[i] = true;
             flag = 0;
-          }
-          else {
+          } else {
             this.isRequested[i] = false;
             flag = 0;
           }
@@ -84,12 +90,32 @@ export class AddfriendComponent implements OnInit {
       // Filter out the users who have sent you requests
       this.requestsService.getSentRequests().subscribe((requests: any) => {
         let flag = 0;
+        this.mySentRequests = requests;
         this.isSent = [];
         users.forEach((userElement, i) => {
-
+          requests.forEach((requestElement) => {
+            if (userElement.email == requestElement.receiver) {
+              flag += 1;
+            }
+          });
+          if (flag == 1) {
+            this.isSent[i] = true;
+            flag = 0;
+          } else {
+            this.isSent[i] = false;
+            flag = 0;
+          }
         });
       });
+
+      this.users = users;
     });
+  }
+
+  instantSearchFilter (users) {
+    if (this.myFriends) {
+
+    }
   }
 
   addFriend(user) {
@@ -104,8 +130,10 @@ export class AddfriendComponent implements OnInit {
     if (q != '') {
       this.startAt.next(q);
       this.endAt.next(q + '\uf8ff');
-      Observable.combineLatest(this.startAt, this.endAt).take(1).subscribe(() => {
+      Observable.combineLatest(this.startAt, this.endAt).take(1).subscribe((value) => {
+        this.userService.instantSearch(value[0], value[1]).take(1).subscribe((users) => {
 
+        });
       });
     }
   }
