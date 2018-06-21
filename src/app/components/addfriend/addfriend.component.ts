@@ -59,6 +59,36 @@ export class AddfriendComponent implements OnInit {
           }
         });
       });
+
+      // Filter out the previous requested users
+      this.requestsService.getMyRequests().subscribe((requests: any) => {
+        let flag = 0;
+        this.isRequested = [];
+        users.forEach((userElement, i) => {
+          requests.forEach((requestElement) => {
+            if (userElement.email == requestElement.sender) {
+              flag += 1;
+            }
+          });
+          if (flag == 1) {
+            this.isRequested[i] = true;
+            flag = 0;
+          }
+          else {
+            this.isRequested[i] = false;
+            flag = 0;
+          }
+        });
+      });
+
+      // Filter out the users who have sent you requests
+      this.requestsService.getSentRequests().subscribe((requests: any) => {
+        let flag = 0;
+        this.isSent = [];
+        users.forEach((userElement, i) => {
+
+        });
+      });
     });
   }
 
@@ -70,7 +100,14 @@ export class AddfriendComponent implements OnInit {
 
   // Instant Searching
   instantSearch($event) {
+    let q = $event.target.value;
+    if (q != '') {
+      this.startAt.next(q);
+      this.endAt.next(q + '\uf8ff');
+      Observable.combineLatest(this.startAt, this.endAt).take(1).subscribe(() => {
 
+      });
+    }
   }
 
   canShow(index) {
