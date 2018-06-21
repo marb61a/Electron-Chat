@@ -33,6 +33,8 @@ export class AddfriendComponent implements OnInit {
 
   ngOnInit() {
     this.userService.getAllUsers().subscribe((users: any) => {
+      this.bkupUsers = users;
+
       // Friends Filter
       this.friendsService.getMyFriends().then((res: any) => {
         res.subscribe((user) => {
@@ -114,7 +116,26 @@ export class AddfriendComponent implements OnInit {
 
   instantSearchFilter (users) {
     if (this.myFriends) {
+      this.isFriends = [];
+      this.isRequested = [];
+      this.isSent = [];
+      let flag = 0;
+      let flag1 = 0;
+      let flag2 = 0;
 
+      users.map((userElement, i) => {
+        this.myFriends.forEach((friendElement) => {
+          if (userElement.email == friendElement.email) {
+            flag += 1;
+          }
+        });
+        if (flag == 1) {
+          this.isFriends[i] = true;
+          flag = 0;
+        } else {
+
+        }
+      });
     }
   }
 
@@ -132,9 +153,13 @@ export class AddfriendComponent implements OnInit {
       this.endAt.next(q + '\uf8ff');
       Observable.combineLatest(this.startAt, this.endAt).take(1).subscribe((value) => {
         this.userService.instantSearch(value[0], value[1]).take(1).subscribe((users) => {
-
+          this.instantSearchFilter(users);
+          this.users = users;
         });
       });
+    } else {
+      this.instantSearchFilter(this.bkupUsers);
+      this.users = this.bkupUsers;
     }
   }
 

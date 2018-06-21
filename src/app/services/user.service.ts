@@ -60,4 +60,13 @@ export class UserService {
   getAllUsers() {
     return this.afs.collection('users').valueChanges();
   }
+
+  // Get specific users profiles
+  getUsers(emails) {
+    let userProfiles = [];
+    let collRef = this.afs.collection('users').ref;
+    emails.forEach((element) => {
+
+    });
+  }
 }
