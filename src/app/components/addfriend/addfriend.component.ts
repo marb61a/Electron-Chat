@@ -13,6 +13,8 @@ import { FriendsService } from '../../services/friends.service';
 })
 export class AddfriendComponent implements OnInit {
   users;
+  startAt = new Subject();
+  endAt = new Subject();
   isFriends = [];
   isSent = [];
   isRequested = [];
@@ -25,9 +27,38 @@ export class AddfriendComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.userService.getAllUsers().subscribe((users) => {
-      this.users = users;
-      console.log(users);
+    this.userService.getAllUsers().subscribe((users: any) => {
+      // Friends Filter
+      this.friendsService.getMyFriends().then((res: any) => {
+        res.subscribe((user) => {
+          if (user == 'Exists') {
+            this.friendsService.getFriendList().subscribe((friends: any) => {
+              if (friends) {
+                this.isFriends = [];
+                let flag = 0;
+                users.map((userElement, i) => {
+                  friends.forEach((friendElement) => {
+                    if (userElement.email == friendElement.email) {
+                      flag += 1;
+                    }
+                  });
+                  if (flag == 1) {
+                    this.isFriends[i] = true;
+                    flag = 0;
+                  } else {
+                    this.isFriends[i] = false;
+                    flag = 0;
+                  }
+                });
+              } else {
+                users.map((userElement, i) => {
+                  this.isFriends[i] = false;
+                });
+              }
+            });
+          }
+        });
+      });
     });
   }
 
