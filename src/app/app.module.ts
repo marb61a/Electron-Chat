@@ -36,6 +36,7 @@ import { RequestsComponent } from './components/requests/requests.component';
 import { ChatFeedComponent } from './components/chat-feed/chat-feed.component';
 import { MyfriendsComponent } from './components/myfriends/myfriends.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { FooterComponent } from './components/footer/footer.component';
     RequestsComponent,
     ChatFeedComponent,
     MyfriendsComponent,
-    FooterComponent
+    FooterComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,

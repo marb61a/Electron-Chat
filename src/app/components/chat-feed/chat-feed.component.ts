@@ -43,4 +43,9 @@ export class ChatFeedComponent implements OnInit {
       }
     });
   }
+
+  // Choose the bubble style
+  chooseClass(msg) {
+
+  }
 }
