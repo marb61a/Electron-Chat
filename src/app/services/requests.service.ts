@@ -18,4 +18,8 @@ export class RequestsService {
       receiver: newrequest
     });
   }
+
+  getMyRequests() {
+
+  }
 }
