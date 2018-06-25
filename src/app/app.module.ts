@@ -38,6 +38,7 @@ import { MyfriendsComponent } from './components/myfriends/myfriends.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { SmartDatePipe } from './pipes/smart-date.pipe';
+import { RelativeDatePipe } from './pipes/relative-date.pipe';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { SmartDatePipe } from './pipes/smart-date.pipe';
     MyfriendsComponent,
     FooterComponent,
     LoadingSpinnerComponent,
-    SmartDatePipe
+    SmartDatePipe,
+    RelativeDatePipe
   ],
   imports: [
     BrowserModule,
