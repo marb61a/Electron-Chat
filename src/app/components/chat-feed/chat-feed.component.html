@@ -14,7 +14,13 @@
         <div class="avatar" *ngIf="msg.sentby != MyId">
           <img src="{{MyAvatar}}">
         </div>
+        <p class="copy">
+          {{msg.message}}
+        </p>
       </div>
+      <p class="time">
+        {{msg.timestamp | smartDate}}
+      </p>
     </div>
   </div>
 </div>
