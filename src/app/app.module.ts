@@ -12,6 +12,12 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { AddfriendComponent } from './components/addfriend/addfriend.component';
+import { RequestsComponent } from './components/requests/requests.component';
+import { ChatFeedComponent } from './components/chat-feed/chat-feed.component';
+import { MyfriendsComponent } from './components/myfriends/myfriends.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 
 // Importing Firebase & AngularFire2
 import { AngularFireModule } from 'angularfire2';
@@ -31,12 +37,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AuthService } from './services/auth.service';
 import { AuthguardService } from './services/authguard.service';
 import { UserService } from './services/user.service';
-import { AddfriendComponent } from './components/addfriend/addfriend.component';
-import { RequestsComponent } from './components/requests/requests.component';
-import { ChatFeedComponent } from './components/chat-feed/chat-feed.component';
-import { MyfriendsComponent } from './components/myfriends/myfriends.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { RequestsService } from './services/requests.service';
+import { FriendsService } from './services/friends.service';
+import { MessagesService } from './services/messages.service';
+
+// Pipes
 import { SmartDatePipe } from './pipes/smart-date.pipe';
 import { RelativeDatePipe } from './pipes/relative-date.pipe';
 
