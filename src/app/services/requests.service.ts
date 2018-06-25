@@ -20,6 +20,7 @@ export class RequestsService {
   }
 
   getMyRequests() {
-
+    this.afs.collection('requests', ref => ref.where('receiver', '==',
+    this.afauth.auth.currentUser.email)).valueChanges();
   }
 }

@@ -37,6 +37,7 @@ import { ChatFeedComponent } from './components/chat-feed/chat-feed.component';
 import { MyfriendsComponent } from './components/myfriends/myfriends.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { SmartDatePipe } from './pipes/smart-date.pipe';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
     ChatFeedComponent,
     MyfriendsComponent,
     FooterComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    SmartDatePipe
   ],
   imports: [
     BrowserModule,
